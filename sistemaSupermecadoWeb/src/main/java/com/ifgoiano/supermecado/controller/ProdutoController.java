@@ -117,17 +117,20 @@ public class ProdutoController {
 	}
 	@RequestMapping(consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody List<Produto> pesquisar(String codigo) {
+		System.out.println(codigo);
 		validarTamanhoNome(codigo);
 		System.out.println(produtos.findByCodigoBarrasContainingIgnoreCase(codigo));
 		return produtos.findByCodigoBarrasContainingIgnoreCase(codigo);
 		
 	}
 	@RequestMapping(value="/adicionar",consumes = { MediaType.APPLICATION_JSON_VALUE })
-	public @ResponseBody List<Produto> salvar(String codigo) {
-		validarTamanhoNome(codigo);
-		System.out.println(produtos.findByCodigoBarrasContainingIgnoreCase(codigo));
-		return produtos.findByCodigoBarrasContainingIgnoreCase(codigo);
+	public @ResponseBody Produto salvar(String codigo) {
+		System.out.println(codigo);
+		long i = Long.parseLong(codigo);
+		//validarTamanhoNome(codigo);
 		
+		//return produtos.findByCodigoBarrasContainingIgnoreCase(codigo);
+		return produtos.findOne(i);
 	}
 	
 	private void validarTamanhoNome(String codigo) {
