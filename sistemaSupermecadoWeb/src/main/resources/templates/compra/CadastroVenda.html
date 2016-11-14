@@ -86,9 +86,9 @@
 				        		data-toggle="modal" data-target="#pesquisaRapidaProdutos">
 				        	<i class="glyphicon  glyphicon-search"></i>
 				        </button>
-				        <button class="btn  btn-default  js-tooltip" type="button" title="Pesquisa avançada"
+				        <button class="btn  btn-default  js-tooltip" id="js-adicionar-item-tabela" type="button" title="Pesquisa avançada"
 				        		>
-				        	<i class="glyphicon  glyphicon-plus" id="js-adicionar-item-tabela"></i>
+				        	<i class="glyphicon  glyphicon-plus"></i>
 				        </button>
 				      </span>
 						</div>
@@ -107,10 +107,7 @@
 			</div>
 			
 			<div class="tab-content">
-				<div class="tab-pane active" id="cervejas">
-					<div class="bw-tabela-cervejas  js-tabela-cervejas-container">
-						<th:block th:replace="compra/TabelaItensVenda"/>
-					</div>
+				<div class="tab-pane active" id="produtos">
 					<div class="bw-tabela-cervejas">
 						<div class="bw-tabela-cervejas__vazio">
 							<i class="glyphicon  glyphicon-shopping-cart"></i> 

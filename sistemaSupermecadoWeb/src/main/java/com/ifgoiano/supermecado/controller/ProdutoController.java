@@ -18,7 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -118,7 +118,16 @@ public class ProdutoController {
 	@RequestMapping(consumes = { MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody List<Produto> pesquisar(String codigo) {
 		validarTamanhoNome(codigo);
+		System.out.println(produtos.findByCodigoBarrasContainingIgnoreCase(codigo));
 		return produtos.findByCodigoBarrasContainingIgnoreCase(codigo);
+		
+	}
+	@RequestMapping(value="/adicionar",consumes = { MediaType.APPLICATION_JSON_VALUE })
+	public @ResponseBody List<Produto> salvar(String codigo) {
+		validarTamanhoNome(codigo);
+		System.out.println(produtos.findByCodigoBarrasContainingIgnoreCase(codigo));
+		return produtos.findByCodigoBarrasContainingIgnoreCase(codigo);
+		
 	}
 	
 	private void validarTamanhoNome(String codigo) {
